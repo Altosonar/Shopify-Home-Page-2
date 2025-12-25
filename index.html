@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Pattern Making | Precision Fashion Pattern Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-black: #111111;
+            --primary-white: #FFFFFF;
+            --accent-crimson: #8B0000;
+            --light-gray: #F5F5F5;
+            --medium-gray: #888888;
+            --dark-gray: #333333;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            color: var(--primary-black);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            letter-spacing: -0.5px;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            cursor: pointer;
+            border: 2px solid transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent-crimson);
+            color: var(--primary-white);
+            border-color: var(--accent-crimson);
+        }
+        
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--accent-crimson);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-white);
+            border-color: var(--primary-white);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary-white);
+            color: var(--primary-black);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--accent-crimson);
+            border-color: var(--accent-crimson);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--accent-crimson);
+            color: var(--primary-white);
+        }
+        
+        .btn-text {
+            background-color: transparent;
+            color: var(--primary-black);
+            border: none;
+            padding: 0.5rem 0;
+            position: relative;
+            padding-right: 1.5rem;
+        }
+        
+        .btn-text:after {
+            content: "→";
+            position: absolute;
+            right: 0;
+            transition: transform 0.3s ease;
+        }
+        
+        .btn-text:hover:after {
+            transform: translateX(5px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1558769132-cb1f96d5cb7a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            color: var(--primary-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* Split Layout Sections */
+        .split-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .split-section.reverse {
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        .split-section.reverse .split-content {
+            order: 1;
+        }
+        
+        .split-section.reverse .split-image {
+            order: 2;
+        }
+        
+        .split-image {
+            height: 500px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .split-content h2 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .split-content p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+        }
+        
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .product-card {
+            border: 1px solid #eee;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-family: var(--font-sans);
+        }
+        
+        .product-card .price {
+            color: var(--accent-crimson);
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin: 0.5rem 0;
+        }
+        
+        .product-card .btn {
+            padding: 0.7rem 1.5rem;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+        
+        /* Service Cards */
+        .service-cards {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .service-card {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            border: 1px solid #eee;
+            padding: 2rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: var(--accent-crimson);
+        }
+        
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-family: var(--font-sans);
+        }
+        
+        .service-card .price {
+            color: var(--accent-crimson);
+            font-weight: 700;
+            font-size: 1.4rem;
+            margin: 1rem 0;
+        }
+        
+        /* Digitizing Section */
+        .digitizing-section {
+            background-color: var(--light-gray);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            text-align: center;
+        }
+        
+        .digitizing-section .container {
+            max-width: 900px;
+        }
+        
+        .benefits {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2.5rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .benefit {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+        
+        /* DXF Conversions Section */
+        .dxf-section {
+            background-color: var(--primary-black);
+            color: var(--primary-white);
+            text-align: center;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%238B0000' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        
+        .dxf-section h2 {
+            color: var(--primary-white);
+        }
+        
+        .format-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .format-badge {
+            width: 80px;
+            height: 80px;
+            background-color: var(--dark-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-white);
+        }
+        
+        /* Pattern Grading Section */
+        .grading-section {
+            text-align: center;
+        }
+        
+        .grading-section p {
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+        
+        /* Reviews Section */
+        .reviews-section {
+            background-color: var(--light-gray);
+            padding: 4rem 2rem;
+        }
+        
+        .reviews-slider {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            padding: 1rem 0;
+            scrollbar-width: thin;
+        }
+        
+        .review-card {
+            min-width: 300px;
+            background-color: var(--primary-white);
+            padding: 2rem;
+            border-radius: 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .stars {
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+        
+        .review-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--dark-gray);
+        }
+        
+        .reviewer {
+            font-weight: 600;
+            color: var(--primary-black);
+        }
+        
+        .service-name {
+            color: var(--accent-crimson);
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            background-color: var(--accent-crimson);
+            color: var(--primary-white);
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        
+        .final-cta h2 {
+            color: var(--primary-white);
+            margin-bottom: 1rem;
+        }
+        
+        .final-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            .split-section {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .split-image {
+                height: 400px;
+                min-height: 400px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .section {
+                padding: 3rem 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero {
+                min-height: 600px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-buttons .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .service-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .service-card {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Banner -->
+    <section class="hero">
+        <div class="hero-content fade-in">
+            <h1>Precision Engineered for Fashion's Future.</h1>
+            <p>Industry-Leading Pattern Making, Digitizing & Grading Services. From Sketch to Production.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Start Your Project</a>
+                <a href="#services" class="btn btn-secondary">View Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 1. Master Pattern Making -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="split-section fade-in">
+                <div class="split-image" style="background-image: url('https://images.unsplash.com/photo-1582794543139-8ac9cad3f008?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');"></div>
+                <div class="split-content">
+                    <h2>Expert Custom Pattern Making & Drafting</h2>
+                    <p>Stop struggling with poorly fitting garments. Our master pattern makers utilize <strong>Gerber Accumark software</strong> to create production-ready patterns that ensure a perfect fit every time. We translate your sketches into high-quality technical files ready for manufacturing.</p>
+                    <a href="https://www.smartpatternmaking.com/collections/pattern-making" class="btn btn-outline">Build My Patterns →</a>
+                    
+                    <div class="product-grid">
+                        <div class="product-card">
+                            <h3>Plus Size - Jeans Boot Fit</h3>
+                            <div class="price">From $899.99</div>
+                            <p>Sewing Pattern Download. Gerber, DXF, and Illustrator format included.</p>
+                            <a href="#" class="btn btn-text">View Pattern</a>
+                        </div>
+                        <div class="product-card">
+                            <h3>Plus Size - Jeans Straight Fit</h3>
+                            <div class="price">From $899.99</div>
+                            <p>Sewing Pattern Download. Gerber, DXF, and Illustrator format included.</p>
+                            <a href="#" class="btn btn-text">View Pattern</a>
+                        </div>
+                        <div class="product-card">
+                            <h3>Plus Size - Jeans Skinny Fit</h3>
+                            <div class="price">From $889.99</div>
+                            <p>Sewing Pattern Download. Gerber, DXF, and Illustrator format included.</p>
+                            <a href="#" class="btn btn-text">View Pattern</a>
+                        </div>
+                        <div class="product-card">
+                            <h3>Plus Size - Jeans Drop Fit</h3>
+                            <div class="price">From $889.99</div>
+                            <p>Sewing Pattern Download. Gerber, DXF, and Illustrator format included.</p>
+                            <a href="#" class="btn btn-text">View Pattern</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Paper-to-Digital Digitizing -->
+    <section class="section digitizing-section fade-in">
+        <div class="container">
+            <h2>Flawless Pattern Digitizing</h2>
+            <p>Convert your physical paper patterns into precise digital formats with our advanced technology. We provide absolute scaling accuracy for <strong>Gerber Digitizing</strong>, protecting your original designs and streamlining your workflow.</p>
+            
+            <div class="benefits">
+                <div class="benefit">
+                    <i class="fas fa-check" style="color: var(--accent-crimson);"></i>
+                    <span>Absolute Scaling Accuracy</span>
+                </div>
+                <div class="benefit">
+                    <i class="fas fa-check" style="color: var(--accent-crimson);"></i>
+                    <span>Gerber, PDF, DXF Outputs</span>
+                </div>
+                <div class="benefit">
+                    <i class="fas fa-check" style="color: var(--accent-crimson);"></i>
+                    <span>Photo & Camera Digitizing</span>
+                </div>
+            </div>
+            
+            <a href="https://www.smartpatternmaking.com/collections/pattern-digitizing-services" class="btn btn-primary">Digitize My Design →</a>
+            
+            <div class="service-cards">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3>Tops Pattern Digitizing</h3>
+                    <div class="price">$449.99</div>
+                    <a href="#" class="btn btn-text">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <h3>Shorts Digitizing</h3>
+                    <div class="price">$449.99</div>
+                    <a href="#" class="btn btn-text">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-vest"></i>
+                    </div>
+                    <h3>Pants Digitizing</h3>
+                    <div class="price">$449.99</div>
+                    <a href="#" class="btn btn-text">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shirt"></i>
+                    </div>
+                    <h3>Shirts Digitizing</h3>
+                    <div class="price">$449.99</div>
+                    <a href="#" class="btn btn-text">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Industrial Pattern Printing -->
+    <section class="section fade-in">
+        <div class="container">
+            <div class="split-section reverse">
+                <div class="split-content">
+                    <h2>High-Resolution Pattern Plotting</h2>
+                    <p>Our reliable industrial printing services deliver precision-printed nested patterns and marker copies. Avoid alignment issues with our high-resolution Gerber plotters and expert handling.</p>
+                    <a href="https://www.smartpatternmaking.com/collections/sewing-pattern-printing-copies-duplicates" class="btn btn-outline">Print My Pattern →</a>
+                    
+                    <div style="margin-top: 3rem;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 500px;">
+                            <div style="padding: 1rem; border-bottom: 1px solid #eee;">Pattern Printing</div>
+                            <div style="padding: 1rem; border-bottom: 1px solid #eee; font-weight: 700; color: var(--accent-crimson);">$349.99</div>
+                            <div style="padding: 1rem; border-bottom: 1px solid #eee;">Tops Printing</div>
+                            <div style="padding: 1rem; border-bottom: 1px solid #eee; font-weight: 700; color: var(--accent-crimson);">$349.99</div>
+                            <div style="padding: 1rem; border-bottom: 1px solid #eee;">Shorts Printing</div>
+                            <div style="padding: 1rem; border-bottom: 1px solid #eee; font-weight: 700; color: var(--accent-crimson);">$349.99</div>
+                            <div style="padding: 1rem;">Pants Printing</div>
+                            <div style="padding: 1rem; font-weight: 700; color: var(--accent-crimson);">$349.99</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="split-image" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. DXF File Conversions -->
+    <section class="section dxf-section fade-in">
+        <div class="container">
+            <h2>Trusted Leaders in DXF Conversions</h2>
+            <p>Eliminate software compatibility issues and data loss. We convert between <strong>Gerber Accumark, Tukatech, PAD Systems, Lectra, and Adobe Illustrator</strong> while keeping your technical data intact.</p>
+            
+            <div class="format-badges">
+                <div class="format-badge">ZIP</div>
+                <div class="format-badge">DXF</div>
+                <div class="format-badge">PLT</div>
+                <div class="format-badge">PDF</div>
+                <div class="format-badge">AI</div>
+            </div>
+            
+            <a href="https://www.smartpatternmaking.com/collections/dxf-file-conversions" class="btn btn-primary">Convert My Files →</a>
+        </div>
+    </section>
+
+    <!-- 5. Precision Pattern Grading -->
+    <section class="section grading-section fade-in">
+        <div class="container">
+            <h2>Resize My Pattern! Accurate Grading & Scaling</h2>
+            <p>Scale your designs with confidence. Our grading services use precise <strong>sewing pattern size charts</strong> to maintain design integrity across all sizes, from sample to full production range.</p>
+            
+            <div class="service-cards">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                    <h3>Full Pattern Grading</h3>
+                    <div class="price">From $449.99</div>
+                    <a href="#" class="btn btn-text">Grade All →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3>Tops Grading Service</h3>
+                    <div class="price">From $449.99</div>
+                    <a href="#" class="btn btn-text">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-vest"></i>
+                    </div>
+                    <h3>Bottoms Grading Service</h3>
+                    <div class="price">From $449.99</div>
+                    <a href="#" class="btn btn-text">Learn More</a>
+                </div>
+            </div>
+            
+            <a href="https://www.smartpatternmaking.com/collections/resizing-pattern-services" class="btn btn-outline" style="margin-top: 3rem;">Explore All Grading →</a>
+        </div>
+    </section>
+
+    <!-- 6. Our Story -->
+    <section class="section fade-in">
+        <div class="container">
+            <div class="split-section">
+                <div class="split-image" style="background-image: url('https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');"></div>
+                <div class="split-content">
+                    <h2>The Pattern Behind the Passion</h2>
+                    <p>In 2000, Alejandro Esporza, with over 30 years of experience with brands like <strong>7 For All Mankind</strong> and <strong>Guess</strong>, saw a gap. He asked, 'What if we could revolutionize pattern making?' His answer was Smart Pattern Making—blending traditional craftsmanship with cutting-edge digital precision.</p>
+                    <a href="#" class="btn btn-text">Read Our Full Story</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Social Proof / Reviews -->
+    <section class="reviews-section fade-in">
+        <div class="container">
+            <h2 style="text-align: center;">Trusted by Designers & Brands</h2>
+            
+            <div class="reviews-slider">
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Precise digitizing, saved our collection timeline. The accuracy was impeccable."</p>
+                    <div class="reviewer">— Sarah M.</div>
+                    <div class="service-name">Pattern Digitizing</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Flawless DXF conversion for our factory. No data loss, perfect compatibility."</p>
+                    <div class="reviewer">— James L.</div>
+                    <div class="service-name">DXF Conversion</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Our plus-size jeans patterns fit perfectly across all sizes. Exceptional grading!"</p>
+                    <div class="reviewer">— Rachel T.</div>
+                    <div class="service-name">Pattern Grading</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"The printed markers were precise with perfect alignment. Highly recommended."</p>
+                    <div class="reviewer">— Michael K.</div>
+                    <div class="service-name">Pattern Printing</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Page-Wide CTA -->
+    <section id="contact" class="final-cta fade-in">
+        <div class="container">
+            <h2>Ready to Transform Your Designs?</h2>
+            <p>Get a Precise Quote Today.</p>
+            <a href="#contact-form" class="btn btn-secondary">Get Your Free Quote →</a>
+        </div>
+    </section>
+
+    <script>
+        // Fade-in animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeInOnScroll = function() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('visible');
+                    }
+                });
+            };
+            
+            // Check on load
+            fadeInOnScroll();
+            
+            // Check on scroll
+            window.addEventListener('scroll', fadeInOnScroll);
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
