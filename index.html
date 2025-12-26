@@ -201,6 +201,89 @@
             line-height: 1.6;
         }
         
+        /* ===== FAQ SECTION STYLES ===== */
+        .faq-section {
+            padding: 100px 0;
+            background-color: var(--primary-white);
+        }
+        
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid var(--medium-gray);
+            padding: 30px 0;
+            transition: var(--transition);
+        }
+        
+        .faq-item:first-child {
+            border-top: 1px solid var(--medium-gray);
+        }
+        
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .faq-question h3 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-black);
+            margin: 0;
+            transition: var(--transition);
+        }
+        
+        .faq-question:hover h3 {
+            color: var(--accent-crimson);
+        }
+        
+        .faq-icon {
+            font-size: 1.2rem;
+            color: var(--accent-crimson);
+            transition: var(--transition);
+            transform: rotate(0deg);
+        }
+        
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            margin-top: 0;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            margin-top: 25px;
+        }
+        
+        .faq-answer p {
+            color: var(--dark-gray);
+            line-height: 1.7;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+        
+        .faq-answer ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .faq-answer li {
+            margin-bottom: 10px;
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+        
         /* ===== BUTTON STYLES ===== */
         .btn {
             display: inline-flex;
@@ -347,10 +430,62 @@
             border-color: #ffffff;
         }
         
+        /* ===== FINAL CTA SECTION ===== */
+        .final-cta {
+            background: linear-gradient(135deg, var(--accent-crimson) 0%, var(--accent-hover) 100%);
+            color: var(--primary-white);
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .final-cta:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.2;
+        }
+        
+        .final-cta h2 {
+            font-size: 3.2rem;
+            margin-bottom: 24px;
+            color: var(--primary-white);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .final-cta p {
+            font-size: 1.4rem;
+            margin-bottom: 48px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .final-cta .btn {
+            padding: 20px 48px;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 2;
+        }
+        
         /* ===== RESPONSIVE STYLES ===== */
         @media (max-width: 1200px) {
             .section-title {
                 font-size: 2.7rem;
+            }
+            
+            .final-cta h2 {
+                font-size: 2.8rem;
             }
         }
         
@@ -374,6 +509,27 @@
             
             .process-step {
                 flex: 0 0 50%;
+                margin-bottom: 40px;
+            }
+            
+            .faq-section {
+                padding: 80px 0;
+            }
+            
+            .faq-question h3 {
+                font-size: 1.3rem;
+            }
+            
+            .final-cta {
+                padding: 80px 0;
+            }
+            
+            .final-cta h2 {
+                font-size: 2.5rem;
+            }
+            
+            .final-cta p {
+                font-size: 1.2rem;
                 margin-bottom: 40px;
             }
         }
@@ -405,6 +561,25 @@
                 padding: 16px 35px;
                 font-size: 14px;
             }
+            
+            .faq-question h3 {
+                font-size: 1.2rem;
+                padding-right: 20px;
+            }
+            
+            .final-cta h2 {
+                font-size: 2.2rem;
+            }
+            
+            .final-cta p {
+                font-size: 1.1rem;
+                padding: 0 20px;
+            }
+            
+            .final-cta .btn {
+                padding: 18px 36px;
+                font-size: 1rem;
+            }
         }
         
         @media (max-width: 576px) {
@@ -422,6 +597,34 @@
             
             .stats-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .faq-question h3 {
+                font-size: 1.1rem;
+            }
+            
+            .faq-item {
+                padding: 20px 0;
+            }
+            
+            .final-cta {
+                padding: 70px 0;
+            }
+            
+            .final-cta h2 {
+                font-size: 1.9rem;
+                padding: 0 15px;
+            }
+            
+            .final-cta p {
+                font-size: 1rem;
+                padding: 0 15px;
+                margin-bottom: 35px;
+            }
+            
+            .final-cta .btn {
+                padding: 16px 32px;
+                font-size: 0.95rem;
             }
         }
     </style>
@@ -506,11 +709,111 @@
             </div>
             
             <div class="text-center" style="margin-top: 60px;">
-                <a href="#contact" class="btn btn-primary">
-                    Start Your Project
+                <a href="#faq" class="btn btn-primary">
+                    View FAQs
                     <span class="btn-arrow"><i class="fas fa-arrow-right"></i></span>
                 </a>
             </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ SECTION ===== -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">FAQ</div>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Get answers to common questions about our pattern making services</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item active">
+                    <div class="faq-question">
+                        <h3>How long does pattern development typically take?</h3>
+                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Pattern development timeline varies based on complexity and requirements. On average:</p>
+                        <ul>
+                            <li>Simple patterns: 2-3 business days</li>
+                            <li>Medium complexity: 5-7 business days</li>
+                            <li>Complex designs or multiple sizes: 7-14 business days</li>
+                        </ul>
+                        <p>We provide a more accurate timeline during our initial consultation based on your specific project needs.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What file formats do you work with?</h3>
+                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We work with all major pattern and CAD file formats including:</p>
+                        <ul>
+                            <li><strong>Input formats:</strong> Gerber (.pat), DXF, AutoCAD (.dwg), Adobe Illustrator (.ai), PDF, JPEG, PNG, and physical patterns</li>
+                            <li><strong>Output formats:</strong> Gerber Accumark (.pat, .hdr, .con), DXF, AutoCAD (.dwg), PDF, HPGL, and other industry-standard formats</li>
+                            <li><strong>Grading files:</strong> Full size sets with nested markers for optimal fabric utilization</li>
+                        </ul>
+                        <p>If you have specific format requirements, we can accommodate most industry standards.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you provide physical pattern printing?</h3>
+                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer comprehensive physical pattern printing services:</p>
+                        <ul>
+                            <li>Large-format plotter printing on pattern paper or card stock</li>
+                            <li>True-to-scale patterns with clear markings and notations</li>
+                            <li>Nest markers for fabric optimization</li>
+                            <li>International shipping of physical patterns</li>
+                            <li>Option for digital files only or both digital and physical copies</li>
+                        </ul>
+                        <p>Our plotters accommodate paper widths up to 72 inches, suitable for even the largest garment patterns.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can you work from sketches or photos?</h3>
+                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! We regularly work from various source materials including:</p>
+                        <ul>
+                            <li>Hand-drawn sketches and illustrations</li>
+                            <li>Photographs of existing garments</li>
+                            <li>Technical flats and fashion illustrations</li>
+                            <li>Physical samples or existing patterns</li>
+                            <li>3D designs and virtual samples</li>
+                        </ul>
+                        <p>For sketches and photos, we'll discuss measurements, fit preferences, and fabric characteristics to ensure the pattern matches your vision accurately.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 60px;">
+                <a href="#contact" class="btn btn-primary">
+                    Still Have Questions?
+                    <span class="btn-arrow"><i class="fas fa-arrow-right"></i></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FINAL CTA SECTION ===== -->
+    <section id="contact" class="final-cta">
+        <div class="container">
+            <h2>Ready to Transform Your Pattern Process?</h2>
+            <p>Get a precise quote for your pattern making, digitizing, grading, or file conversion project today. Experience the Smart Pattern Making difference.</p>
+            <a href="#contact" class="btn btn-primary">
+                GET YOUR FREE QUOTE NOW
+                <span class="btn-arrow"><i class="fas fa-arrow-right"></i></span>
+            </a>
         </div>
     </section>
 
@@ -551,6 +854,33 @@
             statsObserver.observe(statsSection);
         }
 
+        // ===== FAQ TOGGLE FUNCTIONALITY =====
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            // Set first FAQ item as active by default
+            if (faqItems.length > 0) {
+                faqItems[0].classList.add('active');
+            }
+            
+            // Add click event to FAQ questions
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    // Close all other FAQ items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current FAQ item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+
         // ===== ANIMATION FOR SECTIONS =====
         document.addEventListener('DOMContentLoaded', function() {
             // Add fade-in animations for sections
@@ -576,13 +906,22 @@
                     this.style.transform = 'translateY(0)';
                 });
             });
+            
+            // Add animation for final CTA section
+            const finalCta = document.querySelector('.final-cta');
+            if (finalCta) {
+                setTimeout(() => {
+                    finalCta.style.opacity = '1';
+                    finalCta.style.transform = 'translateY(0)';
+                }, 300);
+            }
         });
 
         // ===== SMOOTH SCROLLING =====
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
-                if (href === '#' || href === '#process' || href === '#contact') {
+                if (href === '#' || href === '#process' || href === '#contact' || href === '#faq') {
                     e.preventDefault();
                     const targetElement = document.querySelector(href);
                     if (targetElement) {
@@ -594,6 +933,17 @@
                 }
             });
         });
+        
+        // ===== FLOATING ANIMATION FOR FINAL CTA BUTTON =====
+        const finalCtaBtn = document.querySelector('.final-cta .btn');
+        if (finalCtaBtn) {
+            setInterval(() => {
+                finalCtaBtn.style.transform = 'translateY(-5px)';
+                setTimeout(() => {
+                    finalCtaBtn.style.transform = 'translateY(0)';
+                }, 1000);
+            }, 2000);
+        }
     </script>
 </body>
 </html>
